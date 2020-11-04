@@ -1,10 +1,12 @@
 package main
 
-import "testing"
+import (
+	"testing"
+)
 
 func Test_initialize(test *testing.T) {
 	result := initialize(5)
-	if result != "#####" {
+	if result != "FFFFF" {
 		test.Fail()
 	}
 }
