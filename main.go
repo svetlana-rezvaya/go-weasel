@@ -15,3 +15,12 @@ func initialize(length int) string {
 
 	return result
 }
+
+func mutate(text string, rate float64) string {
+	result := ""
+	for _, character := range text {
+		result = result + string(character)
+	}
+
+	return result
+}
