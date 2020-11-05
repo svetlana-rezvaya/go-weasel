@@ -15,8 +15,13 @@ func Test_initialize(test *testing.T) {
 }
 
 func Test_mutate(test *testing.T) {
-	result := mutate("test", 0)
-	if result != "test" {
+	rand.Seed(1)
+
+	text := "the quick brown fox jumps over the lazy dog"
+	result := mutate(text, 0.2)
+
+	wantedResult := "the qu Pk brown fox jumps oveF tGD Nazy dog"
+	if result != wantedResult {
 		test.Fail()
 	}
 }

@@ -17,9 +17,16 @@ func initialize(length int) string {
 }
 
 func mutate(text string, rate float64) string {
+	alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZ "
 	result := ""
-	for _, character := range text {
-		result = result + string(character)
+	for _, textCharacter := range text {
+		if rand.Float64() < rate {
+			randomIndex := rand.Intn(len(alphabet))
+			randomCharacter := alphabet[randomIndex]
+			result = result + string(randomCharacter)
+		} else {
+			result = result + string(textCharacter)
+		}
 	}
 
 	return result
