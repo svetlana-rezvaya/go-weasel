@@ -1,12 +1,15 @@
 package main
 
 import (
+	"math/rand"
 	"testing"
 )
 
 func Test_initialize(test *testing.T) {
+	rand.Seed(1)
+
 	result := initialize(5)
-	if result != "FFFFF" {
+	if result != "OPCLE" {
 		test.Fail()
 	}
 }
