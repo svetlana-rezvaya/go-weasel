@@ -2,14 +2,18 @@ package main
 
 import "math/rand"
 
-func initialize(length int) string {
+func makeRandomCharacter() byte {
 	alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZ "
+	randomIndex := rand.Intn(len(alphabet))
+	return alphabet[randomIndex]
+}
+
+func initialize(length int) string {
 	result := ""
 	i := 0
 	for i < length {
-		randomIndex := rand.Intn(len(alphabet))
-		character := alphabet[randomIndex]
-		result = result + string(character)
+		randomCharacter := makeRandomCharacter()
+		result = result + string(randomCharacter)
 		i = i + 1
 	}
 
@@ -17,12 +21,10 @@ func initialize(length int) string {
 }
 
 func mutate(text string, rate float64) string {
-	alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZ "
 	result := ""
 	for _, textCharacter := range text {
 		if rand.Float64() < rate {
-			randomIndex := rand.Intn(len(alphabet))
-			randomCharacter := alphabet[randomIndex]
+			randomCharacter := makeRandomCharacter()
 			result = result + string(randomCharacter)
 		} else {
 			result = result + string(textCharacter)
