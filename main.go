@@ -33,3 +33,14 @@ func mutate(text string, rate float64) string {
 
 	return result
 }
+
+func fitness(text string, sample string) int {
+	count := 0
+	for index, textCharacter := range text {
+		if sample[index] != byte(textCharacter) {
+			count = count + 1
+		}
+	}
+
+	return count
+}
