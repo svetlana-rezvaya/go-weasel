@@ -2,6 +2,7 @@ package main
 
 import (
 	"math/rand"
+	"reflect"
 	"testing"
 )
 
@@ -36,6 +37,20 @@ func Test_fitness_withNotEqualStrings(test *testing.T) {
 func Test_fitness_withEqualStrings(test *testing.T) {
 	count := fitness("test1 test2 test3", "test1 test2 test3")
 	if count != 0 {
+		test.Fail()
+	}
+}
+
+func Test_populate(test *testing.T) {
+	text := "the quick brown fox jumps over the lazy dog"
+	textCopies := populate(text, 0.2, 3)
+
+	wantedTextCopies := []string{
+		"the qu Pk brown fox jumps oveF tGD Nazy dog",
+		"the N ick broRn foS jumps oveB theTlazyEdQg",
+		"the quWck b Ewn foxMjumNs Qver She lRzy dog",
+	}
+	if !reflect.DeepEqual(textCopies, wantedTextCopies) {
 		test.Fail()
 	}
 }

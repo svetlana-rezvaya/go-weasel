@@ -44,3 +44,15 @@ func fitness(text string, sample string) int {
 
 	return count
 }
+
+func populate(text string, rate float64, count int) []string {
+	textCopies := []string{}
+	i := 0
+	for i < count {
+		textCopy := mutate(text, rate)
+		textCopies = append(textCopies, textCopy)
+		i = i + 1
+	}
+
+	return textCopies
+}
