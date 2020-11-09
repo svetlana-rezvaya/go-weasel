@@ -54,3 +54,21 @@ func Test_populate(test *testing.T) {
 		test.Fail()
 	}
 }
+
+func Test_search_withoutSample(test *testing.T) {
+	variants := []string{"t***", "te**", "tes*"}
+	sample := "test"
+	result := search(variants, sample)
+	if result != "tes*" {
+		test.Fail()
+	}
+}
+
+func Test_search_withSample(test *testing.T) {
+	variants := []string{"t***", "te**", "test"}
+	sample := "test"
+	result := search(variants, sample)
+	if result != "test" {
+		test.Fail()
+	}
+}

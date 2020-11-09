@@ -1,6 +1,8 @@
 package main
 
-import "math/rand"
+import (
+	"math/rand"
+)
 
 func makeRandomCharacter() byte {
 	alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZ "
@@ -55,4 +57,18 @@ func populate(text string, rate float64, count int) []string {
 	}
 
 	return textCopies
+}
+
+func search(variants []string, sample string) string {
+	result := ""
+	minCount := len(sample)
+	for _, variant := range variants {
+		count := fitness(variant, sample)
+		if count < minCount {
+			result = variant
+			minCount = count
+		}
+	}
+
+	return result
 }
