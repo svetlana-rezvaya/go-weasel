@@ -42,6 +42,8 @@ func Test_fitness_withEqualStrings(test *testing.T) {
 }
 
 func Test_populate(test *testing.T) {
+	rand.Seed(1)
+
 	text := "the quick brown fox jumps over the lazy dog"
 	textCopies := populate(text, 0.2, 3)
 
