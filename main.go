@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"math/rand"
+	"time"
 )
 
 func makeRandomCharacter() byte {
@@ -71,4 +73,27 @@ func search(variants []string, sample string) string {
 	}
 
 	return result
+}
+
+func main() {
+	rand.Seed(time.Now().UnixNano())
+
+	sample := "METHINKS IT IS LIKE A WEASEL"
+	rate := 0.05
+	populationCount := 100
+
+	generation := 0
+	current := initialize(len(sample))
+	for current != sample {
+		if generation%10 == 0 {
+			fmt.Println(generation, current)
+		}
+
+		variants := populate(current, rate, populationCount)
+		current = search(variants, sample)
+
+		generation = generation + 1
+	}
+
+	fmt.Println(generation, current)
 }
