@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"math/rand"
 	"time"
@@ -78,19 +79,21 @@ func search(variants []string, sample string) string {
 func main() {
 	rand.Seed(time.Now().UnixNano())
 
-	sample := "METHINKS IT IS LIKE A WEASEL"
-	rate := 0.05
-	populationCount := 100
+	sample :=
+		flag.String("sample", "METHINKS IT IS LIKE A WEASEL", "target string")
+	rate := flag.Float64("rate", 0.05, "character mutate rate")
+	populationCount := flag.Int("count", 100, "population size")
+	flag.Parse()
 
 	generation := 0
-	current := initialize(len(sample))
-	for current != sample {
+	current := initialize(len(*sample))
+	for current != *sample {
 		if generation%10 == 0 {
 			fmt.Println(generation, current)
 		}
 
-		variants := populate(current, rate, populationCount)
-		current = search(variants, sample)
+		variants := populate(current, *rate, *populationCount)
+		current = search(variants, *sample)
 
 		generation = generation + 1
 	}
