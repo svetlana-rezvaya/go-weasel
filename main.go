@@ -88,7 +88,8 @@ func main() {
 	generation := 0
 	current := initialize(len(*sample))
 	for current != *sample {
-		if generation%10 == 0 {
+		outputRate := 10
+		if generation%outputRate == 0 {
 			fmt.Println(generation, current)
 		}
 
