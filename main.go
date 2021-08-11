@@ -15,11 +15,9 @@ func makeRandomCharacter() byte {
 
 func initialize(length int) string {
 	result := ""
-	i := 0
-	for i < length {
+	for i := 0; i < length; i = i + 1 {
 		randomCharacter := makeRandomCharacter()
 		result = result + string(randomCharacter)
-		i = i + 1
 	}
 
 	return result
@@ -52,11 +50,9 @@ func fitness(text string, sample string) int {
 
 func populate(text string, rate float64, count int) []string {
 	textCopies := []string{}
-	i := 0
-	for i < count {
+	for i := 0; i < count; i = i + 1 {
 		textCopy := mutate(text, rate)
 		textCopies = append(textCopies, textCopy)
-		i = i + 1
 	}
 
 	return textCopies
