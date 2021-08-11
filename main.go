@@ -8,7 +8,7 @@ import (
 )
 
 func makeRandomCharacter() byte {
-	alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZ "
+	const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ "
 	randomIndex := rand.Intn(len(alphabet))
 	return alphabet[randomIndex]
 }
@@ -88,7 +88,7 @@ func main() {
 	generation := 0
 	current := initialize(len(*sample))
 	for current != *sample {
-		outputRate := 10
+		const outputRate = 10
 		if generation%outputRate == 0 {
 			fmt.Println(generation, current)
 		}
