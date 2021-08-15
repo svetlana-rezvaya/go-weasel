@@ -1,4 +1,4 @@
-package main
+package weasel
 
 import (
 	"math/rand"
@@ -6,10 +6,10 @@ import (
 	"testing"
 )
 
-func Test_initialize(test *testing.T) {
+func TestInitialize(test *testing.T) {
 	rand.Seed(1)
 
-	result := initialize(5)
+	result := Initialize(5)
 	if result != "OPCLE" {
 		test.Fail()
 	}
@@ -41,11 +41,11 @@ func Test_fitness_withEqualStrings(test *testing.T) {
 	}
 }
 
-func Test_populate(test *testing.T) {
+func TestPopulate(test *testing.T) {
 	rand.Seed(1)
 
 	text := "the quick brown fox jumps over the lazy dog"
-	textCopies := populate(text, 0.2, 3)
+	textCopies := Populate(text, 0.2, 3)
 
 	wantedTextCopies := []string{
 		"the qu Pk brown fox jumps oveF tGD Nazy dog",
@@ -57,19 +57,19 @@ func Test_populate(test *testing.T) {
 	}
 }
 
-func Test_search_withoutSample(test *testing.T) {
+func TestSearch_withoutSample(test *testing.T) {
 	variants := []string{"t***", "te**", "tes*"}
 	sample := "test"
-	result := search(variants, sample)
+	result := Search(variants, sample)
 	if result != "tes*" {
 		test.Fail()
 	}
 }
 
-func Test_search_withSample(test *testing.T) {
+func TestSearch_withSample(test *testing.T) {
 	variants := []string{"t***", "te**", "test"}
 	sample := "test"
-	result := search(variants, sample)
+	result := Search(variants, sample)
 	if result != "test" {
 		test.Fail()
 	}
