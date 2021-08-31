@@ -6,15 +6,6 @@ import (
 	"testing"
 )
 
-func TestInitialize(test *testing.T) {
-	rand.Seed(1)
-
-	result := Initialize(5)
-	if result != "OPCLE" {
-		test.Fail()
-	}
-}
-
 func Test_mutate(test *testing.T) {
 	rand.Seed(1)
 
