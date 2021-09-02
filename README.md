@@ -2,7 +2,7 @@
 
 [![GoDoc](https://godoc.org/github.com/svetlana-rezvaya/go-weasel?status.svg)](https://godoc.org/github.com/svetlana-rezvaya/go-weasel)
 [![Go Report Card](https://goreportcard.com/badge/github.com/svetlana-rezvaya/go-weasel)](https://goreportcard.com/report/github.com/svetlana-rezvaya/go-weasel)
-[![Build Status](https://travis-ci.com/svetlana-rezvaya/go-weasel.svg?branch=master)](https://travis-ci.com/svetlana-rezvaya/go-weasel)
+[![Build Status](https://app.travis-ci.com/svetlana-rezvaya/go-weasel.svg?branch=master)](https://app.travis-ci.com/svetlana-rezvaya/go-weasel)
 [![codecov](https://codecov.io/gh/svetlana-rezvaya/go-weasel/branch/master/graph/badge.svg)](https://codecov.io/gh/svetlana-rezvaya/go-weasel)
 
 [Weasel program](https://en.wikipedia.org/wiki/Weasel_program).
