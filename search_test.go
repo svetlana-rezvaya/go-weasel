@@ -1,8 +1,6 @@
 package weasel
 
-import (
-	"testing"
-)
+import "testing"
 
 func Test_fitness_withNotEqualStrings(test *testing.T) {
 	count := fitness("test1 test2 test3", "test1 test4 test5")
