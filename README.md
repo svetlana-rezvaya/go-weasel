@@ -10,7 +10,7 @@
 ## Installation
 
 ```
-$ go get github.com/svetlana-rezvaya/go-weasel
+$ go get github.com/svetlana-rezvaya/go-weasel/...
 ```
 
 ## Usage
